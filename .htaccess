@@ -1,0 +1,13 @@
+Options -Indexes
+
+RewriteEngine On
+
+# A antiga URL pública da área de acesso passa a usar o controlador PHP.
+RewriteRule ^acesso\.html$ acesso.php [R=302,L]
+
+# Estas páginas só são entregues depois que auth/protected.php valida a sessão.
+RewriteRule ^(escolha-modalidade|guia-concorrente|guia-prenda|prova-campeira|prova-artistica|prova-escrita|modelo-versos-reserva)\.html$ auth/protected.php?pagina=$1.html [END,QSA,NE]
+
+# Arquivos internos de autenticação não podem ser abertos diretamente pelo navegador.
+RewriteCond %{THE_REQUEST} \s/+.*auth/(bootstrap|protected)\.php[\s?] [NC]
+RewriteRule ^ - [F,L]

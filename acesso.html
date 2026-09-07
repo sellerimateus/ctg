@@ -9,7 +9,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#2a1c12" name="theme-color"/>
 <title>Guia do Concorrente | CTG Sentinela da Serra</title>
-<link href="assets/css/pages/acesso.css?v=3" rel="stylesheet"/>
+<link href="assets/css/pages/acesso.css?v=4" rel="stylesheet"/>
 </head>
 <body>
 <!--=========================================================
@@ -34,15 +34,16 @@ JAVASCRIPT:
 =========================================================-->
 <!-- CONTEÚDO PRINCIPAL DA PÁGINA --><main class="acesso">
 <span class="marca">Área restrita</span>
-<!-- EDITAR AQUI: título "Guia do Concorrente" --><h1>Guia do Concorrente</h1>
-<!-- EDITAR AQUI: texto "Conteúdo destinado aos alunos autorizados do CTG Sentinela da Ser..." --><p>
-    Conteúdo destinado aos alunos autorizados do CTG Sentinela da Serra.
-    Ao continuar, o acesso será validado pelo e-mail cadastrado.
-  </p>
-<!-- EDITAR AQUI: link/botão "Entrar com e-mail →" | href="escolha-modalidade.html" --><a class="botao" href="escolha-modalidade.html">Entrar →</a>
-<div class="aviso">
-    O acesso só será liberado para endereços de e-mail autorizados pela organização.
-  </div>
+<h1>Entrar</h1>
+<form class="login-form" onsubmit="location.href='escolha-modalidade.html'; return false;">
+  <label for="usuario">Usuário</label>
+  <input autocomplete="username" id="usuario" name="usuario" required type="text"/>
+
+  <label for="senha">Senha</label>
+  <input autocomplete="current-password" id="senha" name="senha" required type="password"/>
+
+  <button class="botao" type="submit">Entrar <span aria-hidden="true">→</span></button>
+</form>
 </main>
 <script>
 /* =========================================================
@@ -66,6 +67,4 @@ window.addEventListener("resize", () => {
 });
 </script><button class="botao-voltar-pagina" type="button" onclick="history.length > 1 ? history.back() : location.href='index.html'">Voltar</button></body>
 </html>
-
-
 
