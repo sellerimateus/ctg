@@ -1,0 +1,121 @@
+/* =========================================================
+   CSS BLOCO 1
+   ALTERE AQUI: tamanhos, cores, margens, fontes e responsividade.
+   Dica: procure no HTML pela class="..." do elemento e depois
+   pesquise essa mesma classe dentro do CSS.
+   ========================================================= */
+
+/* =========================================================
+   CSS incorporado de: css/modelo-versos.css
+   ========================================================= */
+body {
+      margin: 0;
+      padding: 40px;
+      color: #2f2117;
+      background: #d8bd8e;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), 920px);
+      margin-inline: auto;
+    }
+
+    .carrossel-versos-horizontal {
+      padding: 18px 0 20px;
+      border-block: 2px solid #b38a43;
+      background:
+        linear-gradient(rgba(222, 203, 163, .91), rgba(222, 203, 163, .91)),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 9px,
+          rgba(73, 46, 24, .045) 10px 11px
+        );
+    }
+
+    .carrossel-versos-container {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) 42px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .versos-janela,
+    .versos-trilho {
+      position: relative;
+      min-height: 112px;
+      height: 112px;
+    }
+
+    .versos-janela {
+      overflow: hidden;
+      border: 1px solid rgba(91, 61, 34, .58);
+      background: #ead8b3;
+      box-shadow: 4px 5px 0 rgba(54, 35, 20, .10);
+    }
+
+    .verso-slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 5px;
+      padding: 12px 24px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .verso-slide.ativo {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .verso-marca,
+    .verso-slide cite {
+      font-size: .52rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .verso-slide blockquote {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(.98rem, 1.45vw, 1.28rem);
+      line-height: 1.18;
+      font-weight: 700;
+    }
+
+    .verso-nav {
+      width: 36px;
+      height: 36px;
+      border: 2px solid #9b773d;
+      border-radius: 50%;
+      color: #f4e3bd;
+      background: #3c5635;
+      cursor: pointer;
+    }
+
+    .versos-pontos {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .verso-ponto {
+      width: 18px;
+      height: 4px;
+      padding: 0;
+      border: 1px solid #7c5930;
+      border-radius: 999px;
+      background: rgba(60, 86, 53, .25);
+    }
+
+    .verso-ponto.ativo {
+      width: 30px;
+      background: #3c5635;
+    }

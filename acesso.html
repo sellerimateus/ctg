@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<link rel="stylesheet" href="assets/css/shared/visual.css" />
+<link rel="stylesheet" href="assets/css/shared/mobile.css" />
+<script defer src="assets/js/visual.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#2a1c12" name="theme-color"/>
+<title>Guia do Concorrente | CTG Sentinela da Serra</title>
+<link href="assets/css/pages/acesso.css?v=3" rel="stylesheet"/>
+</head>
+<body>
+<!--=========================================================
+GUIA DE EDIÇÃO DESTA PÁGINA
+
+Os comentários "EDITAR AQUI" indicam os pontos mais comuns
+para alterar textos, links, botões e imagens.
+
+HTML:
+- h1 / h2 / h3 = títulos
+- p = textos
+- a href="..." = links e botões
+- img src="..." = caminho da imagem
+- section = blocos grandes da página
+
+CSS:
+- fica dentro das tags <style> no <head>
+- no fim do CSS há comentários indicando os ajustes principais
+
+JAVASCRIPT:
+- fica dentro das tags <script> no fim da página
+=========================================================-->
+<!-- CONTEÚDO PRINCIPAL DA PÁGINA --><main class="acesso">
+<span class="marca">Área restrita</span>
+<!-- EDITAR AQUI: título "Guia do Concorrente" --><h1>Guia do Concorrente</h1>
+<!-- EDITAR AQUI: texto "Conteúdo destinado aos alunos autorizados do CTG Sentinela da Ser..." --><p>
+    Conteúdo destinado aos alunos autorizados do CTG Sentinela da Serra.
+    Ao continuar, o acesso será validado pelo e-mail cadastrado.
+  </p>
+<!-- EDITAR AQUI: link/botão "Entrar com e-mail →" | href="escolha-modalidade.html" --><a class="botao" href="escolha-modalidade.html">Entrar →</a>
+<div class="aviso">
+    O acesso só será liberado para endereços de e-mail autorizados pela organização.
+  </div>
+</main>
+<script>
+/* =========================================================
+   CORREÇÃO MENU — NÃO TRAVAR ROLAGEM NO NOTEBOOK
+   ========================================================= */
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1080) {
+    const menu = document.querySelector(".menu-principal");
+    const botao = document.querySelector(".menu-toggle");
+
+    document.body.classList.remove("menu-aberto");
+
+    if (menu) {
+      menu.classList.remove("aberto");
+    }
+
+    if (botao) {
+      botao.setAttribute("aria-expanded", "false");
+    }
+  }
+});
+</script><button class="botao-voltar-pagina" type="button" onclick="history.length > 1 ? history.back() : location.href='index.html'">Voltar</button></body>
+</html>
+
+
+

@@ -1,0 +1,209 @@
+/* =========================================================
+   CSS BLOCO 1
+   ALTERE AQUI: tamanhos, cores, margens, fontes e responsividade.
+   Dica: procure no HTML pela class="..." do elemento e depois
+   pesquise essa mesma classe dentro do CSS.
+   ========================================================= */
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif}
+body{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  color:#f4e3bd;
+  background:
+    linear-gradient(rgba(24,41,29,.97),rgba(20,33,24,.98)),
+    repeating-linear-gradient(90deg,#2c4230 0 24px,#253929 24px 48px);
+}
+.acesso{
+  width:min(calc(100% - 32px),760px);
+  padding:clamp(32px,6vw,64px);
+  border:4px double #b58a43;
+  background:rgba(40,28,20,.55);
+  box-shadow:16px 19px 0 rgba(0,0,0,.23);
+  text-align:center;
+}
+.marca{
+  display:inline-block;
+  padding:9px 14px;
+  border:1px solid rgba(211,174,94,.55);
+  border-radius:999px;
+  color:#e9d8b2;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* O selo é exclusivo da página de acesso e permanece visível. */
+main.acesso .marca{
+  display:inline-block !important;
+}
+h1{
+  margin:24px 0 16px;
+  font:900 clamp(3rem,9vw,6.4rem)/.9 Georgia,"Times New Roman",serif;
+  letter-spacing:-.05em;
+}
+p{
+  max-width:600px;
+  margin:0 auto;
+  color:#d1bd97;
+  line-height:1.7;
+}
+.botao{
+  display:inline-flex;
+  margin-top:30px;
+  padding:16px 24px;
+  border:2px solid #7a562f;
+  color:#2c2118;
+  background:#ead6a6;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-decoration:none;
+  text-transform:uppercase;
+  box-shadow:6px 7px 0 rgba(0,0,0,.18);
+}
+.aviso{
+  margin-top:28px;
+  padding-top:20px;
+  border-top:1px solid rgba(211,174,94,.28);
+  color:#bda984;
+  font-size:.78rem;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE GLOBAL — CORREÇÃO FINAL
+
+   EDITAR AQUI:
+   - impede conteúdo de atravessar a largura do celular;
+   - impede rolagem horizontal acidental;
+   - evita aparecer uma grande área bege ao ultrapassar
+     o fim da página em navegadores mobile.
+   ========================================================= */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #261910; /* mesma família de cor do rodapé */
+  overscroll-behavior-y: none;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+main,
+section,
+header,
+footer {
+  max-width: 100%;
+}
+
+/* Mantém todos os conteúdos flex/grid autorizados a encolher */
+.container,
+.header-inner,
+.logo,
+.logo-texto,
+.hero-conteudo,
+.hero-texto,
+.hero-acoes {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(calc(100% - 24px), var(--largura)) !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* =========================================================
+   CORREÇÃO FINAL — TOUCHPAD + FIM DA PÁGINA
+
+   IMPORTANTE:
+   Este bloco substitui a tentativa anterior com
+   overscroll-behavior-y: none, que podia deixar a rolagem
+   desconfortável em alguns notebooks/navegadores.
+
+   ALTERE AQUI somente se necessário.
+   ========================================================= */
+
+html {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: auto !important;
+  background: #261910 !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  overscroll-behavior-y: auto !important;
+}
+
+/* Páginas normais do site terminam visualmente no rodapé.
+   O bege fica no conteúdo; a área externa da página fica escura. */
+body:has(> footer.site-footer) {
+  min-height: 100dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #261910 !important;
+}
+
+body:has(> footer.site-footer) > main {
+  width: 100% !important;
+  flex: 1 0 auto !important;
+  background:
+    radial-gradient(circle at 16% 10%, rgba(255, 247, 220, 0.48), transparent 30%),
+    radial-gradient(circle at 84% 84%, rgba(87, 55, 27, 0.14), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(76, 49, 25, 0.045) 0 1px, transparent 1px 6px),
+    #d8bd8e;
+}
+
+body:has(> footer.site-footer) > footer.site-footer {
+  width: 100% !important;
+  flex: 0 0 auto !important;
+  margin-bottom: 0 !important;
+}
+
+/* No desktop/notebook, mesmo que a classe do menu tenha ficado
+   ativa por redimensionamento, a página continua rolando normalmente. */
+@media (min-width: 1081px) {
+  body.menu-aberto {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* iPhone / Android: evita uma faixa clara depois do rodapé. */
+@media (max-width: 760px) {
+  html,
+  body {
+    background-color: #261910 !important;
+  }
+
+  .site-footer.rodape-social {
+    margin-bottom: 0 !important;
+    padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Mantém o fundo verde da área restrita até o fim da tela no celular. */
+@media (max-width: 760px) {
+  html,
+  body {
+    min-height: 100dvh;
+    background:
+      linear-gradient(rgba(24, 41, 29, 0.97), rgba(20, 33, 24, 0.98)),
+      repeating-linear-gradient(90deg, #2c4230 0 24px, #253929 24px 48px) !important;
+    background-color: #142118 !important;
+  }
+}
