@@ -12,5 +12,5 @@ if (ini_get('session.use_cookies')) {
 }
 
 session_destroy();
-header('Location: ' . (site_base_path() ?: '') . '/acesso.php', true, 303);
+header('Location: ' . (site_base_path() ?: '') . '/acesso.html', true, 303);
 exit;

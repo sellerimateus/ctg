@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . '/auth/bootstrap.php';
+require __DIR__ . '/bootstrap.php';
 
 iniciar_sessao_segura();
 header('Cache-Control: no-store, max-age=0');
@@ -58,24 +58,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Entrar | CTG Sentinela da Serra</title>
   <link rel="stylesheet" href="assets/css/shared/visual.css">
   <link rel="stylesheet" href="assets/css/shared/mobile.css">
-  <link rel="stylesheet" href="assets/css/pages/acesso.css?v=5">
+  <link rel="stylesheet" href="assets/css/pages/acesso.css?v=27">
 </head>
 <body>
   <main class="acesso">
-    <span class="marca">Área restrita</span>
-    <h1>Entrar</h1>
-    <?php if ($erro !== ''): ?>
-      <p class="login-erro" role="alert"><?= escapar($erro) ?></p>
-    <?php endif; ?>
-    <form class="login-form" action="acesso.php" method="post">
+    <h1>Guia do<br>Concorrente</h1>
+    <form class="login-form" action="acesso.html" method="post">
       <input type="hidden" name="csrf" value="<?= escapar(token_csrf()) ?>">
       <input type="hidden" name="retornar" value="<?= escapar($retornar) ?>">
+      <?php if ($erro !== ''): ?>
+        <p class="login-erro" role="alert"><?= escapar($erro) ?></p>
+      <?php endif; ?>
       <label for="usuario">Usuário</label>
       <input autocomplete="username" id="usuario" maxlength="80" name="usuario" required type="text">
       <label for="senha">Senha</label>
       <input autocomplete="current-password" id="senha" name="senha" required type="password">
-      <button class="botao" type="submit">Entrar <span aria-hidden="true">→</span></button>
+      <button class="botao" type="submit">Entrar <span aria-hidden="true"></span></button>
     </form>
+    <p class="aviso">O acesso é liberado somente para usuários autorizados pela organização.</p>
   </main>
 </body>
 </html>

@@ -95,7 +95,7 @@ function exigir_login(string $destino): void
         return;
     }
 
-    $login = (site_base_path() ?: '') . '/acesso.php';
+    $login = (site_base_path() ?: '') . '/acesso.html';
     header('Location: ' . $login . '?retornar=' . rawurlencode(proxima_pagina_valida($destino)), true, 303);
     exit;
 }

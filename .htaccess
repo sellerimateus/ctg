@@ -2,8 +2,11 @@ Options -Indexes
 
 RewriteEngine On
 
-# A antiga URL pública da área de acesso passa a usar o controlador PHP.
-RewriteRule ^acesso\.html$ acesso.php [R=302,L]
+# A URL pública do acesso é HTML, mas a lógica de autenticação fica em auth/login.php.
+# Também atende links antigos para acesso.php sem expor arquivos PHP na raiz.
+RewriteCond %{THE_REQUEST} \s/+.*auth/login\.php[\s?] [NC]
+RewriteRule ^auth/login\.php$ /ctg/acesso.html [R=302,L]
+RewriteRule ^acesso(?:\.html|\.php)?$ auth/login.php [END,QSA]
 
 # Estas páginas só são entregues depois que auth/protected.php valida a sessão.
 RewriteRule ^(escolha-modalidade|guia-concorrente|guia-prenda|prova-campeira|prova-artistica|prova-escrita|modelo-versos-reserva)\.html$ auth/protected.php?pagina=$1.html [END,QSA,NE]

@@ -171,6 +171,196 @@ footer {
   }
 }
 
+/* Referência visual da área restrita — deve permanecer por último. */
+body {
+  display: grid !important;
+  place-items: center !important;
+  padding: 42px 18px !important;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(205, 168, 85, .07), transparent 32%),
+    linear-gradient(108deg, #14271a 0%, #1a2f1f 52%, #112017 100%) !important;
+}
+
+main.acesso {
+  width: min(calc(100% - 36px), 820px) !important;
+  min-height: 820px;
+  padding: clamp(54px, 5vw, 72px) clamp(42px, 7vw, 96px) clamp(46px, 5vw, 62px) !important;
+  color: #ead8aa !important;
+  text-align: center !important;
+  background: linear-gradient(135deg, #1d2118 0%, #1b1e16 100%) !important;
+  border: 6px double #1d2118 !important;
+  border-radius: 7px;
+  box-shadow: 11px 14px 0 rgba(64, 43, 25, .15) !important;
+}
+
+main.acesso .marca {
+  padding: 10px 18px !important;
+  border: 1px solid rgba(201, 162, 77, .6) !important;
+  border-radius: 999px !important;
+  color: #f1e1b6 !important;
+  background: rgba(27, 31, 22, .72) !important;
+}
+
+main.acesso h1 {
+  margin: 31px 0 22px !important;
+  color: #f5e7ba !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(3.5rem, 7.6vw, 6.35rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.06em !important;
+}
+
+main.acesso .acesso-intro {
+  max-width: 670px !important;
+  color: #d7c08e !important;
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+}
+
+main.acesso .login-form {
+  width: min(100%, 510px) !important;
+  margin: 30px auto 0 !important;
+}
+
+main.acesso .login-form label {
+  color: #e8d3a5 !important;
+}
+
+main.acesso .login-form input {
+  min-height: 54px !important;
+  color: #f6e8c5 !important;
+  border-color: rgba(199, 161, 77, .68) !important;
+  background: rgba(8, 17, 10, .52) !important;
+  box-shadow: none !important;
+}
+
+main.acesso .login-form .botao {
+  width: 170px !important;
+  min-height: 76px !important;
+  justify-self: center !important;
+  margin-top: 15px !important;
+  color: #262017 !important;
+  border-color: #8c6b37 !important;
+  background: #ead9a8 !important;
+  box-shadow: 6px 7px 0 rgba(0, 0, 0, .28) !important;
+}
+
+main.acesso .aviso {
+  max-width: 670px !important;
+  margin-top: 29px !important;
+  padding-top: 21px !important;
+  border-top-color: rgba(198, 160, 77, .34) !important;
+  color: #bea97d !important;
+}
+
+main.acesso .login-erro {
+  max-width: 510px !important;
+  color: #f2d9c1 !important;
+  background: rgba(104, 54, 41, .46) !important;
+}
+
+@media (max-width: 560px) {
+  body { padding: 18px 10px !important; }
+  main.acesso { width: 100% !important; padding: 36px 23px 38px !important; border-width: 5px !important; box-shadow: 9px 12px 0 rgba(5, 13, 8, .45) !important; }
+  main.acesso h1 { font-size: clamp(3.1rem, 15vw, 4.35rem) !important; }
+  main.acesso .acesso-intro { font-size: .92rem !important; }
+  main.acesso .login-form .botao { width: 100% !important; min-height: 54px !important; }
+}
+
+/* Login: composição escura do Guia do Concorrente. */
+body {
+  padding: 42px 18px;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(204, 168, 85, .08), transparent 31%),
+    repeating-linear-gradient(90deg, rgba(255, 238, 186, .025) 0 1px, transparent 1px 6px),
+    linear-gradient(110deg, #14261a, #1b3020 52%, #102017);
+}
+
+.acesso {
+  width: min(calc(100% - 36px), 920px);
+  padding: clamp(42px, 5.4vw, 68px) clamp(28px, 8vw, 98px) clamp(38px, 5vw, 56px);
+  color: #ead7a5;
+  text-align: center;
+  background: linear-gradient(135deg, #1f2119, #1a1d16 60%, #1e2119);
+  border: 6px double #ad873d;
+  box-shadow: 22px 25px 0 rgba(7, 15, 9, .55);
+}
+
+.marca {
+  padding: 10px 18px;
+  border-color: rgba(199, 163, 78, .62);
+  border-radius: 999px;
+  color: #f3e3b8;
+  background: rgba(27, 33, 23, .65);
+}
+
+.acesso h1 {
+  margin: 31px 0 21px;
+  color: #f5e6b9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.7rem, 8.2vw, 6.6rem);
+  line-height: .88;
+  letter-spacing: -.06em;
+}
+
+.acesso-intro {
+  max-width: 670px;
+  color: #dbc594;
+  font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.login-form {
+  width: min(100%, 510px);
+  margin-top: 30px;
+}
+
+.login-form label {
+  color: #e6d0a1;
+}
+
+.login-form input {
+  min-height: 52px;
+  color: #f7e9c7;
+  border-color: rgba(198, 159, 75, .68);
+  background: rgba(7, 17, 10, .52);
+}
+
+.login-form .botao {
+  width: 170px;
+  min-height: 76px;
+  justify-self: center;
+  margin-top: 15px;
+  color: #252019;
+  border-color: #8e6e3b;
+  background: #ead9a8;
+  box-shadow: 6px 7px 0 rgba(0, 0, 0, .28);
+}
+
+.aviso {
+  max-width: 670px;
+  margin-top: 29px;
+  padding-top: 21px;
+  border-top-color: rgba(197, 159, 76, .34);
+  color: #bda77a;
+}
+
+.login-erro {
+  max-width: 510px;
+  margin-top: 22px;
+  color: #f2d9c1;
+  background: rgba(104, 54, 41, .46);
+}
+
+@media (max-width: 560px) {
+  body { padding: 18px 10px; }
+  .acesso { width: 100%; padding: 34px 23px 36px; border-width: 5px; box-shadow: 9px 12px 0 rgba(7, 15, 9, .45); }
+  .acesso h1 { margin-top: 27px; font-size: clamp(3.3rem, 16vw, 4.4rem); }
+  .acesso-intro { font-size: .91rem; }
+  .login-form { margin-top: 26px; }
+  .login-form .botao { width: 100%; min-height: 54px; }
+}
+
 
 /* =========================================================
    CORREÇÃO FINAL — TOUCHPAD + FIM DA PÁGINA
@@ -242,14 +432,167 @@ body:has(> footer.site-footer) > footer.site-footer {
   }
 }
 
+/* Tela de acesso — composição alinhada às páginas em papel do CTG. */
+body {
+  padding: 32px 18px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(207, 168, 86, .11), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(68, 45, 26, .22), transparent 34%),
+    repeating-linear-gradient(90deg, rgba(255, 239, 190, .035) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .018) 0 48px, rgba(0, 0, 0, .075) 48px 96px),
+    linear-gradient(108deg, #15281b 0%, #1d3321 48%, #122018 100%);
+}
+
+.acesso {
+  width: min(calc(100% - 32px), 720px);
+  padding: clamp(38px, 6vw, 68px);
+  border: 7px double #a9803d;
+  color: #302218;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(163, 118, 48, .12), transparent 31%),
+    repeating-linear-gradient(90deg, rgba(82, 58, 30, .045) 0 1px, transparent 1px 6px),
+    #f1e2bd;
+  box-shadow: 18px 20px 0 rgba(5, 13, 8, .42);
+}
+
+.marca {
+  border-color: #806332;
+  border-radius: 3px;
+  color: #f5e6bd;
+  background: #263b2a;
+  box-shadow: 3px 4px 0 rgba(52, 34, 20, .16);
+}
+
+.acesso h1 {
+  margin: 22px 0 10px;
+  color: #2c1d14;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 9vw, 6.1rem);
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+
+.login-form {
+  margin-top: 34px;
+  gap: 10px;
+}
+
+.login-form label {
+  color: #563a28;
+  font-size: .72rem;
+  letter-spacing: .115em;
+}
+
+.login-form input {
+  min-height: 58px;
+  border: 1px solid #927243;
+  border-radius: 2px;
+  color: #2c2118;
+  background: rgba(255, 249, 231, .72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65);
+}
+
+.login-form input:focus {
+  border-color: #30543a;
+  box-shadow: 0 0 0 3px rgba(48, 84, 58, .18);
+}
+
+.login-form .botao {
+  min-height: 58px;
+  margin-top: 14px;
+  border-color: #243a29;
+  color: #f6e8c4;
+  background: linear-gradient(90deg, #243a29, #304d36);
+  box-shadow: 5px 6px 0 rgba(57, 38, 23, .22);
+}
+
+.login-form .botao:hover,
+.login-form .botao:focus-visible {
+  background: linear-gradient(90deg, #304d36, #3a5b40);
+}
+
+.login-erro {
+  margin: 25px auto -6px;
+  padding: 12px 14px;
+  border: 0;
+  border-left: 4px solid #814735;
+  color: #593427;
+  background: rgba(130, 71, 52, .11);
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  body { padding: 18px 12px; }
+  .acesso { width: 100%; padding: 34px 24px 38px; box-shadow: 9px 11px 0 rgba(5, 13, 8, .35); }
+  .acesso h1 { font-size: clamp(3.2rem, 18vw, 4.4rem); }
+}
+
 /* Mantém o fundo verde da área restrita até o fim da tela no celular. */
 @media (max-width: 760px) {
   html,
   body {
     min-height: 100dvh;
     background:
-      linear-gradient(rgba(24, 41, 29, 0.97), rgba(20, 33, 24, 0.98)),
-      repeating-linear-gradient(90deg, #2c4230 0 24px, #253929 24px 48px) !important;
+      radial-gradient(circle at 18% 16%, rgba(209, 172, 91, .10), transparent 34%),
+      repeating-linear-gradient(90deg, rgba(255, 239, 190, .035) 0 1px, transparent 1px 6px),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, .018) 0 48px, rgba(0, 0, 0, .075) 48px 96px),
+      linear-gradient(108deg, #15281b 0%, #1d3321 48%, #122018 100%) !important;
     background-color: #142118 !important;
   }
 }
+
+/* Mantido no fim para a tela de acesso não herdar o cartão em papel. */
+body {
+  display: grid !important;
+  place-items: center !important;
+  min-height: 100svh !important;
+  padding: 42px 18px !important;
+  background:
+    linear-gradient(90deg, rgba(24, 42, 28, .96) 0 54%, rgba(24, 42, 28, .84) 72%, rgba(24, 42, 28, .70)),
+    repeating-linear-gradient(90deg, #382518 0 24px, #432c1d 24px 48px) !important;
+}
+
+main.acesso {
+  width: min(calc(100% - 36px), 740px) !important;
+  min-height: 970px;
+  padding: clamp(54px, 5vw, 72px) clamp(42px, 7vw, 96px) clamp(46px, 5vw, 62px) !important;
+  color: #ead8aa !important;
+  text-align: center !important;
+  background: linear-gradient(135deg, #1d2118 0%, #1b1e16 100%) !important;
+  border: 6px double #b28a40 !important;
+  box-shadow: 11px 14px 0 rgba(64, 43, 25, .15) !important;
+}
+
+main.acesso .marca { padding: 10px 18px !important; border: 1px solid rgba(201, 162, 77, .6) !important; border-radius: 999px !important; color: #f1e1b6 !important; background: rgba(27, 31, 22, .72) !important; }
+main.acesso h1 { margin: 10px 0 28px !important; color: #f5e7ba !important; font-family: Georgia, "Times New Roman", serif !important; font-size: clamp(3.45rem, 6.9vw, 5.15rem) !important; line-height: .88 !important; letter-spacing: -.065em !important; }
+main.acesso .acesso-intro { max-width: 670px !important; color: #d7c08e !important; font-size: 1.05rem !important; line-height: 1.65 !important; }
+main.acesso .login-form { width: min(100%, 510px) !important; margin: 30px auto 0 !important; }
+main.acesso .login-form label { color: #e8d3a5 !important; }
+main.acesso .login-form input { min-height: 54px !important; color: #f6e8c5 !important; border-color: rgba(199, 161, 77, .68) !important; background: rgba(8, 17, 10, .52) !important; box-shadow: none !important; }
+main.acesso .login-form .botao { width: 170px !important; min-height: 76px !important; justify-self: center !important; margin-top: 15px !important; color: #262017 !important; border-color: #8c6b37 !important; background: #ead9a8 !important; box-shadow: 6px 7px 0 rgba(0, 0, 0, .28) !important; }
+main.acesso .aviso { max-width: 670px !important; margin-top: 29px !important; padding-top: 21px !important; border-top-color: rgba(198, 160, 77, .34) !important; color: #bea97d !important; }
+main.acesso .login-erro { display: block !important; width: min(100%, 510px) !important; max-width: 510px !important; justify-self: center !important; margin: 0 auto 14px !important; text-align: center !important; color: #f2d9c1 !important; background: rgba(104, 54, 41, .46) !important; }
+
+@media (max-width: 560px) {
+  body { padding: 18px 10px !important; }
+  main.acesso { width: 100% !important; min-height: 0; padding: 36px 23px 38px !important; border-width: 5px !important; box-shadow: 8px 10px 0 rgba(34, 25, 13, .12), 0 15px 24px rgba(30, 22, 12, .23) !important; }
+  main.acesso h1 { font-size: clamp(3.1rem, 15vw, 4.35rem) !important; }
+  main.acesso .acesso-intro { font-size: .92rem !important; }
+  main.acesso .login-form .botao { width: 100% !important; min-height: 54px !important; }
+}
+
+/* Telas mais baixas: preserva o cartão inteiro sem exigir rolagem. */
+@media (min-width: 561px) and (max-height: 900px) {
+  body { padding: 18px !important; }
+  main.acesso { min-height: 0; padding: 30px clamp(38px, 6vw, 78px) 28px !important; }
+  main.acesso h1 { margin: 19px 0 15px !important; font-size: clamp(3.15rem, 8.7vh, 5.2rem) !important; }
+  main.acesso .acesso-intro { font-size: .94rem !important; line-height: 1.48 !important; }
+  main.acesso .login-form { margin-top: 19px !important; gap: 6px !important; }
+  main.acesso .login-form input { min-height: 45px !important; margin-bottom: 7px !important; }
+  main.acesso .login-form .botao { min-height: 52px !important; margin-top: 8px !important; }
+  main.acesso .aviso { margin-top: 19px !important; padding-top: 14px !important; font-size: .72rem !important; }
+}
+
+/* A área restrita abre diretamente no formulário de login. */
+main.acesso .login-form { display: grid !important; }
