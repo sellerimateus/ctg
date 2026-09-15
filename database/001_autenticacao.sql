@@ -1,5 +1,5 @@
--- Banco MySQL: ctg
--- Usuários da área restrita. As senhas devem sempre ser gravadas com password_hash do PHP.
+-- Migração MySQL da área restrita do CTG.
+-- Execute uma vez no banco `ctg` antes da publicação.
 
 CREATE TABLE IF NOT EXISTS usuarios (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS login_tentativas (
   KEY idx_login_tentativas_bloqueado (bloqueado_ate)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Exemplo de inserção: substitua o hash pelo resultado de password_hash('sua-senha', PASSWORD_DEFAULT).
+-- Exemplo: gere o hash com password_hash no PHP; nunca guarde senha em texto.
 -- INSERT INTO usuarios (usuario, senha_hash) VALUES ('novo_usuario', '$2y$...');

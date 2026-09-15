@@ -22,4 +22,4 @@ if (!is_file($arquivo)) {
 header('Content-Type: text/html; charset=UTF-8');
 header('X-Content-Type-Options: nosniff');
 header('Cache-Control: private, no-store, max-age=0');
-readfile($arquivo);
+require $arquivo;

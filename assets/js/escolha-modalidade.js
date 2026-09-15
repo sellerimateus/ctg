@@ -33,20 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const buscaCampo = document.querySelector(".busca-campo");
   const buscaResultados = document.querySelector(".busca-resultados");
   const paginasBusca = [
-    { titulo: "Início", url: "index.html", palavras: "portal CTG Sentinela da Serra" },
-    { titulo: "Guia do Concorrente", url: "escolha-modalidade.html", palavras: "peão prenda modalidade guia de estudos" },
-    { titulo: "História do CTG", url: "historia.html", palavras: "história fundação entidade galpão" },
-    { titulo: "Calendário", url: "calendario.html", palavras: "calendário eventos compromissos ensaios" },
-    { titulo: "Prova Campeira", url: "prova-campeira.html", palavras: "trança encilha charque churrasco chimarrão" },
-    { titulo: "Prova Artística", url: "prova-artistica.html", palavras: "poesia declamação dança roteiro" },
-    { titulo: "Prova Escrita", url: "prova-escrita.html", palavras: "questões livros simulados estudo" }
+    { titulo: "Início", url: "index.php", palavras: "portal CTG Sentinela da Serra" },
+    { titulo: "Guia do Concorrente", url: "escolha-modalidade.php", palavras: "peão prenda modalidade guia de estudos" },
+    { titulo: "História do CTG", url: "historia.php", palavras: "história fundação entidade galpão" },
+    { titulo: "Calendário", url: "calendario.php", palavras: "calendário eventos compromissos ensaios" },
+    { titulo: "Prova Campeira", url: "prova-campeira.php", palavras: "trança encilha charque churrasco chimarrão" },
+    { titulo: "Prova Artística", url: "prova-artistica.php", palavras: "poesia declamação dança roteiro" },
+    { titulo: "Prova Escrita", url: "prova-escrita.php", palavras: "questões livros simulados estudo" }
   ];
+  const paginasBuscaEstudo = paginasBusca.filter((pagina) => !["index.php", "historia.php", "calendario.php"].includes(pagina.url));
+  paginasBuscaEstudo[0] = { ...paginasBuscaEstudo[0], titulo: "Guia do Concorrente" };
+  paginasBuscaEstudo.splice(1, 0,
+    { titulo: "Guia do Pe\u00e3o", url: "guia-concorrente.php", palavras: "estudo peao prova campeira" },
+    { titulo: "Guia da Prenda", url: "guia-prenda.php", palavras: "estudo prenda prova artistica escrita" }
+  );
 
   const renderizarBusca = (termo = "") => {
     if (!buscaResultados) return;
 
     const consulta = termo.trim().toLowerCase();
-    const resultados = paginasBusca.filter((pagina) =>
+    const resultados = paginasBuscaEstudo.filter((pagina) =>
       !consulta || `${pagina.titulo} ${pagina.palavras}`.toLowerCase().includes(consulta)
     );
 

@@ -1,16 +1,39 @@
-Options -Indexes
+# Segurança do diretório público da aplicação.
+Options -Indexes -Includes -ExecCGI
+
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), geolocation=(), microphone=()"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' data:; form-action 'self'; frame-ancestors 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"
+</IfModule>
+
+<FilesMatch "\.(?:bak|conf|dist|env|ini|log|old|sql|swp)$">
+    Require all denied
+</FilesMatch>
 
 RewriteEngine On
 
-# A URL pública do acesso é HTML, mas a lógica de autenticação fica em auth/login.php.
-# Também atende links antigos para acesso.php sem expor arquivos PHP na raiz.
+# Metadados de controle de versão e materiais privados nunca são estáticos.
+RewriteRule (^|/)\.git(?:/|$) - [F,L]
+RewriteRule ^assets/pdf/ - [F,L]
+
+# Enderecos HTML antigos continuam funcionando e apontam para as paginas PHP atuais.
+RewriteRule ^(index|historia|calendario|escolha-modalidade|guia-concorrente|guia-prenda|prova-campeira|prova-artistica|prova-escrita|modelo-versos-reserva)\.html$ /ctg/$1.php [R=302,L,NE]
+
+# A URL pública do acesso é HTML, mas a lógica de autenticação fica em PHP.
 RewriteCond %{THE_REQUEST} \s/+.*auth/login\.php[\s?] [NC]
-RewriteRule ^auth/login\.php$ /ctg/acesso.html [R=302,L]
+RewriteRule ^auth/login\.php$ /ctg/acesso.php [R=302,L]
+RewriteCond %{THE_REQUEST} \s/+.*acesso\.html[\s?] [NC]
+RewriteRule ^acesso\.html$ /ctg/acesso.php [R=302,L]
 RewriteRule ^acesso(?:\.html|\.php)?$ auth/login.php [END,QSA]
 
 # Estas páginas só são entregues depois que auth/protected.php valida a sessão.
-RewriteRule ^(escolha-modalidade|guia-concorrente|guia-prenda|prova-campeira|prova-artistica|prova-escrita|modelo-versos-reserva)\.html$ auth/protected.php?pagina=$1.html [END,QSA,NE]
+RewriteRule ^(escolha-modalidade|guia-concorrente|guia-prenda|prova-campeira|prova-artistica|prova-escrita|modelo-versos-reserva)\.php$ auth/protected.php?pagina=$1.php [END,QSA,NE]
 
-# Arquivos internos de autenticação não podem ser abertos diretamente pelo navegador.
+# Arquivos internos de autenticação não podem ser abertos diretamente.
 RewriteCond %{THE_REQUEST} \s/+.*auth/(bootstrap|protected)\.php[\s?] [NC]
 RewriteRule ^ - [F,L]
